@@ -1,0 +1,153 @@
+/* Estilos personalizados para melhorar a visibilidade das bordas dos inputs */
+
+/* Estilo para todos os inputs, textareas e selects */
+input[type="text"],
+input[type="email"],
+input[type="file"],
+textarea,
+select {
+    border: 1px solid #cbd5e0 !important; /* Borda mais visível */
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    width: 100%;
+    transition: border-color 0.2s ease-in-out;
+}
+
+/* Estilo para o foco nos elementos de formulário */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="file"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #4f46e5 !important; /* Cor indigo quando em foco */
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2) !important; /* Sombra sutil para destacar o foco */
+    outline: none;
+}
+
+/* Estilo para o hover nos elementos de formulário */
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="file"]:hover,
+textarea:hover,
+select:hover {
+    border-color: #a5b4fc !important; /* Cor indigo mais clara no hover */
+}
+
+/* Estilo específico para o input de arquivo */
+input[type="file"] {
+    border: 1px solid #cbd5e0 !important;
+    padding: 0.25rem;
+    background-color: #f9fafb;
+}
+
+/* Estilo para os labels dos formulários */
+label {
+    margin-bottom: 0.25rem;
+    display: block;
+    font-weight: 500;
+}
+
+/* Estilo para destacar a seção de execução de testes quando exibida */
+.highlight-section {
+    animation: highlight-fade 3s ease-in-out;
+    border: 2px solid transparent;
+}
+
+@keyframes highlight-fade {
+    0% { background-color: rgba(79, 70, 229, 0.2); border-color: rgba(79, 70, 229, 0.5); }
+    50% { background-color: rgba(79, 70, 229, 0.1); border-color: rgba(79, 70, 229, 0.3); }
+    100% { background-color: transparent; border-color: transparent; }
+}
+
+/* ============= Estilos para Drag-and-Drop ============= */
+
+/* Container das execuções */
+#testExecutions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Item de execução draggable */
+#testExecutions > div[data-test-id] {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: move;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover nos itens draggables */
+#testExecutions > div[data-test-id]:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-color: #d1d5db;
+    background-color: #fafafa;
+}
+
+/* Item sendo arrastado */
+#testExecutions > div[data-test-id].dragging {
+    opacity: 0.5;
+    background-color: #f3f4f6;
+}
+
+/* Área de drop ativa */
+#testExecutions > div[data-test-id].drag-over {
+    background-color: #dbeafe;
+    border: 2px dashed #3b82f6;
+    border-radius: 0.375rem;
+}
+
+/* Ícone de grip (para indicar que é arrastável) */
+.fa-grip-vertical {
+    cursor: grab;
+}
+
+#testExecutions > div[data-test-id]:active .fa-grip-vertical {
+    cursor: grabbing;
+}
+
+/* ============= Estilos para Drag-and-Drop das Evidências ============= */
+
+/* Item de evidência draggable */
+.evidence-item {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: move;
+    transition: all 0.2s ease-in-out;
+    border-radius: 0.25rem;
+}
+
+/* Hover nos itens de evidência */
+.evidence-item:hover {
+    background-color: #f9fafb;
+}
+
+/* Item de evidência sendo arrastado */
+.evidence-item.dragging {
+    opacity: 0.5;
+    background-color: #f3f4f6;
+}
+
+/* Área de drop ativa para evidências */
+.evidence-item.drag-over {
+    background-color: #dbeafe;
+    border: 1px dashed #3b82f6 !important;
+}
+
+/* Ícone de grip das evidências */
+.evidence-item .fa-grip-vertical {
+    cursor: grab;
+    transition: color 0.2s ease-in-out;
+}
+
+.evidence-item:hover .fa-grip-vertical {
+    color: #6b7280;
+}
+
+.evidence-item:active .fa-grip-vertical {
+    cursor: grabbing;
+}

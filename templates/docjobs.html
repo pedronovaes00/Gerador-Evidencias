@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de DOCJOBS BRM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="stylesheet" href="static/css/fab.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Gerador de DOCJOBS BRM</h1>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="flex items-center mb-6">
+                <img src="static/img/vivo-logo.svg" alt="Vivo Logo" class="h-16 mr-4">
+                <h2 class="text-xl font-bold text-blue-700">PLANILHA DE CADASTRO DE JOBS NO CONTROL-M</h2>
+            </div>
+            
+            <form id="docjobsForm" class="space-y-4">
+                <!-- Informações Básicas -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="smNumber" class="w-1/3 text-sm font-medium text-gray-700">Número da SM:</label>
+                        <input type="text" id="smNumber" name="smNumber" class="w-2/3">
+                    </div>
+                    <div class="flex">
+                        <label for="callNumber" class="w-1/3 text-sm font-medium text-gray-700">Número do Chamado:</label>
+                        <input type="text" id="callNumber" name="callNumber" class="w-2/3">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="requester" class="w-1/3 text-sm font-medium text-gray-700">Solicitante:</label>
+                        <input type="text" id="requester" name="requester" value="Eliel Alexandre Andrade Souza" class="w-2/3">
+                    </div>
+                    <div class="flex">
+                        <label for="phone" class="w-1/3 text-sm font-medium text-gray-700">Telefone:</label>
+                        <input type="text" id="phone" name="phone" value="(83) 99629-6737" class="w-2/3">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="requestType" class="w-1/3 text-sm font-medium text-gray-700">Tipo Solicitação:</label>
+                        <div class="w-2/3">
+                            <select id="requestType" name="requestType" class="w-full text-sm border-gray-300 rounded-md text-blue-600 font-medium">
+                                <option value="Criação de Job" selected>Criação de Job</option>
+                                <option value="Alteração de Job">Alteração de Job</option>
+                                <option value="Exclusão de Job">Exclusão de Job</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <label for="environment" class="w-1/3 text-sm font-medium text-gray-700">Ambiente:</label>
+                        <div class="w-2/3">
+                            <select id="environment" name="environment" class="w-full text-sm border-gray-300 rounded-md text-blue-600 font-medium">
+                                <option value="Produção" selected>Produção</option>
+                                <option value="Homologação">Homologação</option>
+                                <option value="Desenvolvimento">Desenvolvimento</option>
+                                <option value="Teste">Teste</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="requestDate" class="w-1/3 text-sm font-medium text-gray-700">Data Solicitação:</label>
+                        <input type="text" id="requestDate" name="requestDate" value="10/10/2024" class="w-2/3">
+                    </div>
+                    <div class="flex">
+                        <label for="deadlineDate" class="w-1/3 text-sm font-medium text-gray-700">Data limite p/ produção:</label>
+                        <input type="text" id="deadlineDate" name="deadlineDate" value="31/10/2024" class="w-2/3">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-4 border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="subject" class="w-1/6 text-sm font-medium text-gray-700">Assunto:</label>
+                        <input type="text" id="subject" name="subject" class="w-5/6">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="businessUnit" class="w-1/3 text-sm font-medium text-gray-700">Unidade de Negócio:</label>
+                        <div class="w-2/3">
+                            <select id="businessUnit" name="businessUnit" class="w-full text-sm border-gray-300 rounded-md text-blue-600 font-medium">
+                                <option value="DRDR - Tarifação" selected>DRDR - Tarifação</option>
+                                <option value="DRDR - Faturamento">DRDR - Faturamento</option>
+                                <option value="DIEO">DIEO</option>
+                                <option value="Projeto DW">Projeto DW</option>
+                                <option value="SPIC">SPIC</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <label for="system" class="w-1/3 text-sm font-medium text-gray-700">Sistema:</label>
+                        <input type="text" id="system" name="system" value="BRM" class="w-2/3">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="businessImpact" class="w-1/3 text-sm font-medium text-gray-700">Impacto do Negócio:</label>
+                        <input type="text" id="businessImpact" name="businessImpact" placeholder="Descreva o impacto no negócio" class="w-2/3">
+                    </div>
+                    <div class="flex">
+                        <label for="criticality" class="w-1/3 text-sm font-medium text-gray-700">Criticidade:</label>
+                        <input type="text" id="criticality" name="criticality" value="Alta" class="w-2/3">
+                    </div>
+                </div>
+                
+                <!-- Informações Gerais -->
+                <div class="border border-gray-300 p-2">
+                    <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+                        <div class="md:col-span-1 flex items-center justify-center">
+                            <span class="text-sm font-medium text-gray-700">Geral</span>
+                        </div>
+                        <div class="md:col-span-5">
+                            <div class="grid grid-cols-1 gap-2">
+                                <div class="flex">
+                                    <label for="jobName" class="w-1/4 text-sm font-medium text-gray-700">Nome do Job:</label>
+                                    <input type="text" id="jobName" name="jobName" value="relatorio_analitico_interf_contab" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="owner" class="w-1/4 text-sm font-medium text-gray-700">Owner:</label>
+                                    <input type="text" id="owner" name="owner" value="" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="shellName" class="w-1/4 text-sm font-medium text-gray-700">Nome do Shell:</label>
+                                    <input type="text" id="shellName" name="shellName" value="exec_brmapps.sh" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="path" class="w-1/4 text-sm font-medium text-gray-700">Path:</label>
+                                    <input type="text" id="path" name="path" value="/brmcontrolm/brmapps/scripts/" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="server" class="w-1/4 text-sm font-medium text-gray-700">Servidor:</label>
+                                    <input type="text" id="server" name="server" value="BRTOCLTS006C" class="w-1/4">
+                                    <label for="ip" class="w-1/4 text-sm font-medium text-gray-700 text-right pr-2">IP:</label>
+                                    <input type="text" id="ip" name="ip" value="10.239.201.216" class="w-1/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="jobDescription" class="w-1/4 text-sm font-medium text-gray-700">Descrição do Job:</label>
+                                    <input type="text" id="jobDescription" name="jobDescription" value="Automatização de relatório Analítico Interfaces Contábeis" class="w-3/4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Frequência de Execução -->
+                <div class="border border-gray-300 p-2">
+                    <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+                        <div class="md:col-span-1">
+                            <div class="flex flex-col h-full">
+                                <span class="text-sm font-medium text-gray-700">Frequência de Execução</span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-5">
+                            <div class="grid grid-cols-1 gap-2">
+                                <div class="flex items-center">
+                                    <div class="w-1/6">
+                                        <label for="frequencyType" class="text-sm font-medium text-gray-700">Tipo:</label>
+                                        <select id="frequencyType" name="frequencyType" class="mt-1 block w-full text-sm border-gray-300 rounded-md">
+                                            <option value="Diário" selected>Diário</option>
+                                            <option value="Mensal">Mensal</option>
+                                        </select>
+                                    </div>
+                                    <div class="w-2/6 flex items-center">
+                                        <label class="text-sm font-medium text-gray-700 mr-2">Horário Início (hh:mm):</label>
+                                        <input type="number" id="startHour" name="startHour" min="0" max="23" value="01" class="w-12 text-center border-gray-300 rounded-md">
+                                        <span class="mx-1">:</span>
+                                        <input type="number" id="startMinute" name="startMinute" min="0" max="59" value="00" class="w-12 text-center border-gray-300 rounded-md">
+                                    </div>
+                                    <div class="w-2/6 flex items-center">
+                                        <label class="text-sm font-medium text-gray-700 mr-2">Horário Final (hh:mm):</label>
+                                        <input type="number" id="endHour" name="endHour" min="0" max="23" placeholder="HH" class="w-12 text-center border-gray-300 rounded-md">
+                                        <span class="mx-1">:</span>
+                                        <input type="number" id="endMinute" name="endMinute" min="0" max="59" placeholder="MM" class="w-12 text-center border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="flex space-x-4">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="monday" name="monday" checked class="h-4 w-4 text-blue-600">
+                                            <label for="monday" class="ml-2 text-sm text-gray-700">Segunda</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="tuesday" name="tuesday" checked class="h-4 w-4 text-blue-600">
+                                            <label for="tuesday" class="ml-2 text-sm text-gray-700">Terça</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="wednesday" name="wednesday" checked class="h-4 w-4 text-blue-600">
+                                            <label for="wednesday" class="ml-2 text-sm text-gray-700">Quarta</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="thursday" name="thursday" checked class="h-4 w-4 text-blue-600">
+                                            <label for="thursday" class="ml-2 text-sm text-gray-700">Quinta</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="friday" name="friday" checked class="h-4 w-4 text-blue-600">
+                                            <label for="friday" class="ml-2 text-sm text-gray-700">Sexta</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="saturday" name="saturday" checked class="h-4 w-4 text-blue-600">
+                                            <label for="saturday" class="ml-2 text-sm text-gray-700">Sábado</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="sunday" name="sunday" checked class="h-4 w-4 text-blue-600">
+                                            <label for="sunday" class="ml-2 text-sm text-gray-700">Domingo</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <label for="frequencyDetails" class="w-1/4 text-sm font-medium text-gray-700">Detalhamento da Frequência:</label>
+                                    <input type="text" id="frequencyDetails" name="frequencyDetails" placeholder="Detalhamento da frequência de execução" class="w-3/4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Condições -->
+                <div class="border border-gray-300 p-2">
+                    <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+                        <div class="md:col-span-1 flex items-center">
+                            <span class="text-sm font-medium text-gray-700">Condições</span>
+                        </div>
+                        <div class="md:col-span-5">
+                            <div class="grid grid-cols-1 gap-2">
+                                <div class="flex">
+                                    <label for="predecessorProcess" class="w-1/3 text-sm font-medium text-gray-700">Sub processo(s) Antecessor(es):</label>
+                                    <input type="text" id="predecessorProcess" name="predecessorProcess" value="N/A" class="w-2/3">
+                                </div>
+                                <div class="flex">
+                                    <label for="successorProcess" class="w-1/3 text-sm font-medium text-gray-700">Sub processo(s) Sucessor(es):</label>
+                                    <input type="text" id="successorProcess" name="successorProcess" value="N/A" class="w-2/3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recursos -->
+                <div class="border border-gray-300 p-2">
+                    <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+                        <div class="md:col-span-1 flex items-center">
+                            <span class="text-sm font-medium text-gray-700">Recursos</span>
+                        </div>
+                        <div class="md:col-span-5">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                <div class="flex">
+                                    <label for="parallelExecution" class="w-1/2 text-sm font-medium text-gray-700">Execução Paralela?</label>
+                                    <div class="w-1/2">
+                                        <select id="parallelExecution" name="parallelExecution" class="w-full text-sm border-gray-300 rounded-md text-blue-600 font-medium">
+                                            <option value="Não" selected>Não</option>
+                                            <option value="Sim">Sim</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <label for="processNames" class="w-1/2 text-sm font-medium text-gray-700">Nome dos Processos:</label>
+                                    <input type="text" id="processNames" name="processNames" value="N/A" class="w-1/2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Parâmetros -->
+                <div class="border border-gray-300 p-2">
+                    <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+                        <div class="md:col-span-1 flex items-center">
+                            <span class="text-sm font-medium text-gray-700">Parâmetros</span>
+                        </div>
+                        <div class="md:col-span-5">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                <div class="flex">
+                                    <label for="param1" class="w-1/4 text-sm font-medium text-gray-700">Parm1:</label>
+                                    <input type="text" id="param1" name="param1" value="/oms/apps/c_relatorios/c_relatorios.sh" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="param5" class="w-1/4 text-sm font-medium text-gray-700">Parm5:</label>
+                                    <input type="text" id="param5" name="param5" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="param2" class="w-1/4 text-sm font-medium text-gray-700">Parm2:</label>
+                                    <input type="text" id="param2" name="param2" value="ANALITICO_INTERF_CONTAB" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="param6" class="w-1/4 text-sm font-medium text-gray-700">Parm6:</label>
+                                    <input type="text" id="param6" name="param6" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="param3" class="w-1/4 text-sm font-medium text-gray-700">Parm3:</label>
+                                    <input type="text" id="param3" name="param3" value="<DATA>" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="param7" class="w-1/4 text-sm font-medium text-gray-700">Parm7:</label>
+                                    <input type="text" id="param7" name="param7" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="param4" class="w-1/4 text-sm font-medium text-gray-700">Parm4:</label>
+                                    <input type="text" id="param4" name="param4" class="w-3/4">
+                                </div>
+                                <div class="flex">
+                                    <label for="param8" class="w-1/4 text-sm font-medium text-gray-700">Parm8:</label>
+                                    <input type="text" id="param8" name="param8" class="w-3/4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Return Code -->
+                <div class="border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="returnCode" class="w-1/6 text-sm font-medium text-gray-700">Return Code:</label>
+                        <input type="text" id="returnCode" name="returnCode" value="Exit 0, executado com sucesso. Exit difrente de 0 é erro" class="w-5/6">
+                    </div>
+                </div>
+                
+                <!-- E-mail -->
+                <div class="border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="emailNotification" class="w-1/6 text-sm font-medium text-gray-700">E-mail destino para notificação:</label>
+                        <input type="text" id="emailNotification" name="emailNotification" class="w-5/6">
+                    </div>
+                </div>
+                
+                <!-- Observação -->
+                <div class="border border-gray-300 p-2">
+                    <div class="flex flex-col">
+                        <label for="observations" class="text-sm font-medium text-gray-700">Observação:</label>
+                        <textarea id="observations" name="observations" rows="3" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="O Param3 DATA é opcional e deve ser preenchido em casos de execuções retroativas. <DATA>: O parâmetro de data tem formato AAAAMMDD."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Assinaturas -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="executor" class="w-1/3 text-sm font-medium text-gray-700">Executor:</label>
+                        <input type="text" id="executor" name="executor" class="w-2/3">
+                    </div>
+                    <div class="flex">
+                        <label for="executionDate" class="w-1/3 text-sm font-medium text-gray-700">Data de Execução:</label>
+                        <input type="text" id="executionDate" name="executionDate" class="w-2/3">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border border-gray-300 p-2">
+                    <div class="flex">
+                        <label for="approver" class="w-1/3 text-sm font-medium text-gray-700">Aprovador:</label>
+                        <input type="text" id="approver" name="approver" class="w-2/3">
+                    </div>
+                    <div class="flex">
+                        <label for="approvalDate" class="w-1/3 text-sm font-medium text-gray-700">Data de Aprovação:</label>
+                        <input type="text" id="approvalDate" name="approvalDate" class="w-2/3">
+                    </div>
+                </div>
+                
+                <div class="flex justify-center space-x-4">
+                    <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Gerar Documento
+                    </button>
+                    <button type="button" id="clearForm" class="inline-flex justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        Limpar Formulário
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Botão de Ação Flutuante (FAB) -->
+    <div class="fab-container">
+        <div class="fab-button">
+            <i class="fas fa-plus"></i>
+        </div>
+        <div class="fab-options">
+            <div class="fab-option">
+                <div class="fab-option-label">Gerador de DOCJOBS BRM</div>
+                <div class="fab-option-button" id="fab-docjobs-generator">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+            </div>
+            <div class="fab-option">
+                <div class="fab-option-label">Gerador de Evidências de Testes</div>
+                <div class="fab-option-button" id="fab-evidence-generator">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="static/js/main.js"></script>
+    <script src="static/js/fab.js"></script>
+    <script src="static/js/docjobs.js"></script>
+</body>
+</html>

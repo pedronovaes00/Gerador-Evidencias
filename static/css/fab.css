@@ -1,0 +1,93 @@
+/* Estilos para o botão de ação flutuante (FAB) */
+
+.fab-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.fab-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #4f46e5; /* Cor indigo para combinar com o tema existente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fab-button:hover {
+    background-color: #4338ca; /* Cor indigo mais escura no hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.fab-button i {
+    font-size: 24px;
+}
+
+.fab-options {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.fab-options.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.fab-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.fab-option-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f46e5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fab-option-button:hover {
+    background-color: #f9fafb;
+    transform: scale(1.05);
+}
+
+.fab-option-label {
+    background-color: #4f46e5;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-right: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Animação de rotação para o ícone do botão principal */
+.fab-button.active i {
+    transform: rotate(45deg);
+}
