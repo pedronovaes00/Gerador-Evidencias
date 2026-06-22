@@ -1,4 +1,11 @@
-uploads/
-static/pdfs/
+__pycache__/
+*.pyc
+.env
 instance/
-docjobs/gerados/
+uploads/*
+!uploads/.gitkeep
+static/pdfs/*
+!static/pdfs/.gitkeep
+docjobs/gerados/*
+!docjobs/gerados/.gitkeep
+*.log
