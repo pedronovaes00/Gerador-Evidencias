@@ -17,4 +17,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/gerador-evidencias:latest
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/gerador-evidencias:latest
+            ${{ secrets.DOCKER_USERNAME }}/gerador-evidencias:${{ github.sha }}
+      - name: Notificar e Referenciar local da falha
+        if: failure()
+        run: echo "❌ Pipe falhou!" - Logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
